@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Y.O.U</title>
+    <link rel="stylesheet" href="mystyle.css">
+
+   <style>
+    body {
+        flex-direction: column;
+        font-family: 'Times New Roman';
+        background-image: url(abt.jpg);
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        color: #333;
+        text-align: center;
+    }
+
+    /* Wrapper styling for floating effect */
+    .content {
+        justify-content: center; /* Align content vertically in the middle */
+        align-items: center; /* Align content horizontally in the center */
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        position: relative;
+        z-index: 10;
+        animation: zoomIn 1s ease-out; /* Zoom-in effect */
+        margin: auto; /* Automatically center horizontally */
+        max-width: 60%; /* Prevent from overflowing the page */
+        width: fit-content; /* Fit content based on text size */
+        text-align: center; /* Ensure text is centered */
+    }
+
+    /* Optional zoom-in animation */
+    @keyframes zoomIn {
+        0% {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+        /* Heading styling */
+        h1 {
+            font-family: JasmineUPC;
+            font-size: 2.5rem;
+            color: #921A40;
+            margin: 0; /* Remove default margin */
+            font-weight: bold;
+        }
+         h3 {
+            color: white;
+            margin: 0; /* Remove default margin */
+            font-weight: Italic;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 0, 0, 0.6); /* Adds shadow to text */
+
+        }
+
+        /* Paragraph styling */
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+            margin: 0; /* Remove default margin */
+        }
+        
+    .footer-bottom p {
+        margin: 0;
+    }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+        <div class="sidebar">
+            <br>
+            <br>
+            <br>
+            <a href="index.html"><h1>Y.O.U</h1></a>
+            <a href="about.html">ABOUT</a>
+            <a href="collection.html">SHOP</a>
+            <ul>
+                <li class="dropdown">
+                    <a href="collection.html">Collection of YOU</a>
+                    <div class="dropdown-menu">
+                        <a href="rg.html">YOU Radiance Glow - Glowing Skin</a>
+                        <a href="acne-plus.html">YOU Acne Plus - Acne Removal</a>
+                        <a href="sunbrella.html">YOU Sunbrella - UV Sunscreen</a>
+                        <a href="radiance-up.html">YOU Radiance UP! - Brightening</a>
+                        <a href="golden-age.html">YOU Golden Age - Anti-Aging</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="skincare.html">Skincare</a>
+                    <div class="dropdown-menu">
+                        <a href="cleanser.html">Cleanser</a>
+                        <a href="te.html">Toner & Essence</a>
+                        <a href="serum.html">Serum</a>
+                        <a href="moisturizer.html">Moisturizer & Cream</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="makeup.html">Make Up</a>
+                    <div class="dropdown-menu">
+                        <a href="makeup.html">All</a>
+                            <a href="cloud.html">Cloud Touch</a>
+                            <a href="noutriwear.html">Noutriwear</a>
+                            <a href="eyebrow.html">Eyebrow & Mascara</a>
+                            <a href="lips.html">Lips</a>
+                    </div>
+                </li>
+            </ul>
+            <a href="store.html">STORE</a>
+        </div>
+
+
+        <div class="content">
+            <h1>About Us</h1>
+            <br>
+            <br>
+            <p><strong>Y.O.U</strong> (short for Youthful, Outstanding, Unique) is a popular cosmetics and skincare brand, known for offering affordable yet quality products. We focus on youthful beauty and promote self-expression. Y.O.U products are often designed to meet modern beauty needs, and the brand emphasizes innovation and natural ingredients in its offerings.</p>
+            <br>
+            <br>
+            <h3><i>Radiance.  Sooth.  Fair.  Beauty.  Young.</i></h3> 
+        </div>
+
+        <!-- Top Navigation -->
+         <div class="top-nav">
+                <a href="profile.html" class="ribbon">Profile</a>
+                <a href="search.html">Search</a>
+                <a href="cart.html">Cart</a>
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+
+
+<br>
+    <footer> 
+<div class="footer-bottom">
+        <p>© 2025 Y.O.U Beauty. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+
+</body>
+</html>
