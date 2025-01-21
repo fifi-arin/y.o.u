@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="mystyle.css">
+
+    <style>
+
+        html, body {  
+        font-family: 'Times New Roman';
+        margin: 0;
+        padding: 0;
+        background: radial-gradient(circle, rgba(207,66,66,1) 0%, rgba(251,222,235,1) 59%);
+        color: #333;
+        min-height: 100vh; /* Ensures the body takes up the full height of the viewport */
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between; /* Ensures content spacing works for flex items */
+    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 10px; /* Space between the header and nav */
+        }
+
+        header h2 {
+            font-family: 'JasmineUPC', serif; /* Ensure the custom font is applied */
+            font-size: 2.5rem; /* Adjust the font size to make it prominent */
+            color: #921A40; /* Light cream color for the text */
+            font-weight: bold; /* Make the font bold */
+            margin: 0; /* Remove default margin */
+        }
+
+
+        /* Navigation Styles */
+        nav {
+            position: absolute;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            gap: 40px;              
+            top: 0p;       
+            padding: 10px 0;        
+            z-index: 10;            
+        }
+
+
+        nav a {
+            font-size: 1.1rem;
+            color: #921A40;         /* Deep pink color for links */
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: 600;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #921A40; /* Change background on hover */
+            color: #fff;              /* Change text color on hover */
+        }
+
+        /* Product Filter Navigation */
+        .filter-nav {
+            position: relative;
+            top: 110px;
+            background: #f9f5f5; /* Light background for nav */
+            border-radius: 25px;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            z-index: 90;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+        .filter-nav.fixed {
+            position: fixed;
+            top: 50px; /* Adjusted to sit below the navigation bar */
+            left: 50%;
+            margin: 0 auto;
+            transform: translateX(-50%);
+            justify-content: center;
+            background: #f9f5f5; /* Light background for nav */
+            border-radius: 25px;
+            padding: 15px 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Retain shadow for visibility */
+             z-index: 100;
+        }
+        .filter-nav a {
+            font-size: 1rem;
+            color: #4a3c3c; /* Neutral brown color */
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .filter-nav a.active {
+            color: #66332f; /* Darker shade for active link */
+        }
+
+        .filter-nav a.active::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background-color: #66332f;
+        }
+
+        .filter-nav a:hover {
+            color: #66332f; /* Darker hover effect */
+        }
+
+
+        /* Image Between Nav and Filter Nav */
+        .image-between-nav {
+            margin-top: 180px; /* Space below the nav */
+            margin-bottom: 10px; /* Space before filter nav */
+            text-align: center;
+        }
+
+        .image-between-nav img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-title-section {
+            text-align: center;
+            margin: 100px 0 20px; /* Adds space above and below the title */
+            color: white; /* Deep pink color for the title */
+        }
+
+        .product-title-section h2 {
+            font-family: 'JasmineUPC'; /* Use your preferred font */
+            font-weight: 600; /* Bold font weight */
+            text-transform: uppercase; /* Optional: Makes text uppercase */
+        }
+
+
+        /* Product Section */
+        .product-container {
+            margin-top: 90px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        /* Product Box */
+        .product-box {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            padding: 20px;
+            border: 5px solid pink;
+        }
+
+        .product-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-box img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-box:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .product-name {
+            font-size: 1.6rem;
+            color: #921A40; /* Deep pink for product names */
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            color: #ff80bf; /* Soft pink for price */
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .buy-now-btn {
+            background-color: #921A40; /* Deep pink for button */
+            color: white;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .buy-now-btn:hover {
+            background-color: #731a3e; /* Darker deep pink on hover */
+            transform: scale(1.05);
+        }
+        
+        .top-nav a {
+            color: #8e5c56;
+            transition: color 0.3s ease; /* Smooth transition */
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+        <div class="sidebar">
+            <br>
+            <br>
+            <br>
+            <a href="home.html"><h1>Y.O.U</h1></a>
+            <a href="about.html">ABOUT</a>
+            <a href="collection.html">SHOP</a>
+            <ul>
+                <li class="dropdown">
+                    <a href="collection.html">Collection of YOU</a>
+                    <div class="dropdown-menu">
+                        <a href="rg.html">YOU Radiance Glow - Glowing Skin</a>
+                        <a href="acne-plus.html">YOU Acne Plus - Acne Removal</a>
+                        <a href="sunbrella.html">YOU Sunbrella - UV Sunscreen</a>
+                        <a href="radiance-up.html">YOU Radiance UP! - Brightening</a>
+                        <a href="golden-age.html">YOU Golden Age - Anti-Aging</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="skincare.html">Skincare</a>
+                    <div class="dropdown-menu">
+                        <a href="cleanser.html">Cleanser</a>
+                        <a href="te.html">Toner & Essence</a>
+                        <a href="serum.html">Serum</a>
+                        <a href="moisturizer.html">Moisturizer & Cream</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="makeup.html">Make Up</a>
+                    <div class="dropdown-menu">
+                        <a href="makeup.html">All</a>
+    <a href="cloud.html">Cloud Touch</a>
+    <a href="noutriwear.html">Noutriwear</a>
+    <a href="eyebrow.html">Eyebrow & Mascara</a>
+    <a href="lips.html">Lips</a>
+                    </div>
+                </li>
+</ul>
+            <a href="store.html">STORE</a>
+        </div>
+
+            <div class="top-nav">
+                <a href="profile.html" class="ribbon">Profile</a>
+                <a href="search.html">Search</a>
+                <a href="cart.html">Cart</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Navigation Bar -->
+
+    <nav>
+         <header>
+            <h2 font-style= JasmineUPC color=#F9E6CF>SHOP</h2>
+        </header>
+        <br>
+        <a href="collection.html">Collection</a>
+        <a href="skincare.html">Skincare</a>
+        <a href="makeup.html">Makeup</a>
+    </nav>
+
+
+    <div class="filter-nav">
+    <a href="skincare.html">All</a>
+    <a href="cloud.html">Cloud Touch</a>
+    <a href="noutriwear.html">Noutriwear</a>
+    <a href="eyebrow.html">Eyebrow & Mascara</a>
+    <a href="lips.html">Lips</a>
+</div>
+
+<div class="image-between-nav">
+        <img src="picture13.jpg" alt="Banner Image">
+    </div>
+
+ <section class="product-title-section">
+         <h2>Eyebrow & Mascara</h2> 
+    </section>
+<div class="product-container">
+    <div class="product-box" id="collection">
+            <img src="n1.jpg" alt="Product 1">
+            <div class="product-info">
+                <div class="product-name">Teardrop Brow Series</div>
+                <div class="product-price">RM 12.77</div>
+                <div class="product-description">Dual-Ended Brow Definer</div>
+<a href="https://shopee.com.my/you.os?shopCollection=250574035#product_list" class="buy-now-btn">Buy Now</a>            </div>
+            </div>
+        </div>
+
+    <div class="product-box" id="collection">
+            <img src="n2.jpg" alt="Product 1">
+            <div class="product-info">
+                <div class="product-name">Stay All Day Eyeliner</div>
+                <div class="product-price">RM 20.91</div>
+                <div class="product-description">24 Hours Long Lasting</div>
+<a href="https://shopee.com.my/you.os?shopCollection=250574035#product_list" class="buy-now-btn">Buy Now</a>            </div>
+            </div>
+        </div>
+    <div class="product-box" id="collection">
+            <img src="n3.jpg" alt="Product 1">
+            <div class="product-info">
+                <div class="product-name">Lashtension Mascara</div>
+                <div class="product-price">RM 18.72</div>
+                <div class="product-description">12H Longwear & Curl</div>
+<a href="https://shopee.com.my/you.os?shopCollection=250574035#product_list" class="buy-now-btn">Buy Now</a>            </div>
+            </div>
+        </div>
+
+    <div class="product-box" id="collection">
+            <img src="n4.jpg" alt="Product 1">
+            <div class="product-info">
+                <div class="product-name">Lashboom Mascara</div>
+                <div class="product-price">RM 24.52</div>
+                <div class="product-description">24H Waterproof Ultra Volume Mascara</div>
+<a href="https://shopee.com.my/you.os?shopCollection=250574035#product_list" class="buy-now-btn">Buy Now</a>            </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<footer> 
+<div class="footer-bottom">
+        <p>© 2025 Y.O.U Beauty. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+
+</body>
+</html>

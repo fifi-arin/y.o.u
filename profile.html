@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="mystyle.css">
+
+
+    <style>
+
+    body {
+    margin: 0;
+    font-family: 'JasmineUPC', 'Times New Roman';
+    background-image: url(bg2.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.auth-container {
+    margin: auto;
+    width: 400px;
+    background-color: white;
+    border: 2px solid #8e5c56;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.auth-header {
+    background-color: #921A40;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.auth-content {
+    padding: 30px;
+}
+
+.auth-content h2 {
+    align-items: center;
+    color: #921A40;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.auth-content label {
+    display: block;
+    color: #921A40;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.auth-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #921A40;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.auth-content button {
+    width: 100%;
+    padding: 10px;
+    background-color: #921A40;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.auth-content button:hover {
+    background-color: #8e5c56;
+}
+
+.auth-footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f8f5f3;
+    border-top: 1px solid #921A40;
+    color: #921A40;
+    font-size: 0.9rem;
+}
+
+.auth-footer a {
+    text-decoration: none;
+    color: #921A40;
+    font-weight: bold;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+        <div class="sidebar">
+            <br>
+            <br>
+            <br>
+            <a href="home.html"><h1>Y.O.U</h1></a>
+            <a href="about.html">ABOUT</a>
+            <a href="collection.html">SHOP</a>
+            <ul>
+                <li class="dropdown">
+                    <a href="collection.html">Collection of YOU</a>
+                    <div class="dropdown-menu">
+                        <a href="rg.html">YOU Radiance Glow - Glowing Skin</a>
+                        <a href="acne-plus.html">YOU Acne Plus - Acne Removal</a>
+                        <a href="sunbrella.html">YOU Sunbrella - UV Sunscreen</a>
+                        <a href="radiance-up.html">YOU Radiance UP! - Brightening</a>
+                        <a href="golden-age.html">YOU Golden Age - Anti-Aging</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="skincare.html">Skincare</a>
+                    <div class="dropdown-menu">
+                        <a href="cleanser.html">Cleanser</a>
+                        <a href="te.html">Toner & Essence</a>
+                        <a href="serum.html">Serum</a>
+                        <a href="moisturizer.html">Moisturizer & Cream</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="makeup.html">Make Up</a>
+                    <div class="dropdown-menu">
+                        <a href="makeup.html">All</a>
+                                <a href="cloud.html">Cloud Touch</a>
+                                <a href="noutriwear.html">Noutriwear</a>
+                                <a href="eyebrow.html">Eyebrow & Mascara</a>
+                                <a href="lips.html">Lips</a>
+                    </div>
+                </li>
+</ul>
+            <a href="store.html">STORE</a>
+        </div>
+
+
+ <div class="top-nav">
+                <a href="profile.html" class="ribbon">Profile</a>
+                <a href="search.html">Search</a>
+                <a href="cart.html">Cart</a>
+            </div>
+
+
+
+    <div class="auth-container">
+        <div class="auth-header">
+            Sign Up / Log In
+        </div>
+        <div class="auth-content">
+            <h2>Welcome</h2>
+            <form>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                <button type="submit">Log In</button>
+
+                <div class="auth-footer">
+                    Don't have an account? <a href="signup.html">Sign Up</a>
+                </div>
+            </form>
+        </div>
+
+     <script src="script.js"></script>
+
+    </div>
+
+<footer> 
+<div class="footer-bottom">
+        <p>© 2025 Y.O.U Beauty. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+
+    
+</body>
+</html>

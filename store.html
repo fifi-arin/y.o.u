@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="mystyle.css">
+    <style>
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html, body {
+        background: radial-gradient(circle, rgba(207,66,66,1) 0%, rgba(251,222,235,1) 59%);
+        background-size: cover; /* Ensures the background covers the full viewport */
+        background-attachment: fixed; /* Keeps the background fixed while scrolling */
+        color: #333;
+        min-height: 100%; /* Ensure full height */
+        width: 100%;
+        margin: 0;
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+
+    body {
+        display: block; /* Change from flexbox to block layout */
+        overflow-y: auto; /* Ensure vertical scrolling */
+    }
+
+    /* Header */
+    header {
+        color: #921A40;
+        width: 100%;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+
+    p {
+    text-align: center; /* Centers the text horizontally */
+    margin: 20px auto; /* Centers the <p> element horizontally */
+    font-size: 1.1rem;
+    color: white;
+    margin-bottom: 20px; /* Adds bottom spacing */
+    max-width: 80%; /* Optional: Limits the width for better readability */
+}
+
+    /* Map Section */
+    .map-section {
+        width: 100%;
+        margin-top: 50px;
+        text-align: center;
+        padding: 20px 0;
+        background-color: white;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .map-section h2 {
+        font-size: 2rem;
+        color: #921A40;
+        margin-bottom: 20px;
+    }
+
+    .map-container {
+        width: 100%;
+        max-width: 1000px;
+        margin-bottom: 80px;
+        height: 400px;
+        margin: 0 auto;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    .top-nav a {
+        color: #8e5c56;
+        transition: color 0.3s ease;
+    }
+</style>
+
+</head>
+<body>
+
+ <header>
+        <h1>Our Store</h1>
+    </header>
+    <p>Find out our 183 places, that store our product below, and explore.</p>
+
+
+    <div class="container">
+        <!-- Sidebar -->
+
+
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+        <div class="sidebar">
+            <br>
+            <br>
+            <br>
+            <a href="home.html"><h1>Y.O.U</h1></a>
+            <a href="about.html">ABOUT</a>
+            <a href="collection.html">SHOP</a>
+            <ul>
+                <li class="dropdown">
+                    <a href="collection.html">Collection of YOU</a>
+                    <div class="dropdown-menu">
+                        <a href="rg.html">YOU Radiance Glow - Glowing Skin</a>
+                        <a href="acne-plus.html">YOU Acne Plus - Acne Removal</a>
+                        <a href="sunbrella.html">YOU Sunbrella - UV Sunscreen</a>
+                        <a href="radiance-up.html">YOU Radiance UP! - Brightening</a>
+                        <a href="golden-age.html">YOU Golden Age - Anti-Aging</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="skincare.html">Skincare</a>
+                    <div class="dropdown-menu">
+                        <a href="cleanser.html">Cleanser</a>
+                        <a href="te.html">Toner & Essence</a>
+                        <a href="serum.html">Serum</a>
+                        <a href="moisturizer.html">Moisturizer & Cream</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="makeup.html">Make Up</a>
+                    <div class="dropdown-menu">
+                        <a href="makeup.html">All</a>
+                            <a href="cloud.html">Cloud Touch</a>
+                            <a href="noutriwear.html">Noutriwear</a>
+                            <a href="eyebrow.html">Eyebrow & Mascara</a>
+                            <a href="lips.html">Lips</a>
+                    </div>
+                </li>
+</ul>
+            <a href="#">STORE</a>
+        </div>
+
+<div class="top-nav">
+                <a href="profile.html" class="ribbon">Profile</a>
+                <a href="search.html">Search</a>
+                <a href="cart.html">Cart</a>
+            </div>
+
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <h2>Find Us</h2>
+        <div class="map-container">
+            <a href="https://www.google.com/maps/@-1.0189646,111.0504439,5z/data=!4m3!11m2!2sN41YJe7nTlu101S5birlew!3e3?hl=en&entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" 
+           target="_blank" 
+           rel="noopener noreferrer">
+            <img src="store1.png" 
+                 alt="Map showing the location of the store" 
+                 style="width: 100%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);">
+        </a>
+        </div>
+    </section>
+
+
+
+                 <script src="script.js"></script>
+
+
+<footer> 
+<div class="footer-bottom">
+        <p>© 2025 Y.O.U Beauty. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+</div>
+</body>
+</html>

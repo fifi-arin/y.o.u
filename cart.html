@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="mystyle.css">
+
+    <style>
+        /* Import JasmineUPC font */
+        @import url('https://fonts.googleapis.com/css2?family=JasmineUPC&display=swap');
+
+        /* Global Styling */
+        body {
+            font-family: 'Times New Roman';
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #921A40, #F7C8C8);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Cart Container */
+        .cart-container {
+            background: #F9F9F9;
+            padding: 40px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+            overflow: hidden;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header Section */
+        .cart-container h2 {
+            font-family: 'JasmineUPC', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #D9534F;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .cart-container p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Cart Items */
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #F1F1F1;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .item-details {
+            flex-grow: 1;
+            margin-left: 15px;
+        }
+
+        .item-details p {
+            margin: 0;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .item-details .price {
+            font-weight: bold;
+            color: #921A40;
+        }
+
+        .item-remove {
+            font-size: 1.2rem;
+            color: #921A40;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .item-remove:hover {
+            color: #C14536;
+        }
+
+
+        .cart-summary-container {
+    display: flex;
+    justify-content: space-between; /* Space out the product code and cart summary */
+    align-items: center; /* Align items vertically */
+    gap: 20px; /* Add space between the sections */
+    margin-bottom: 30px; /* Add spacing below the section */
+}
+
+.product-code p {
+    margin: 0; /* Remove extra margins for consistent alignment */
+    font-size: 1rem; /* Adjust font size as needed */
+    color: #555; /* Styling for text color */
+}
+
+.cart-summary-container > div {
+    flex: 1; /* Allow equal space for both sections */
+}
+
+
+        /* Cart Summary */
+        .cart-summary {
+            background: #F1F1F1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-summary h3 {
+            font-size: 1.5rem;
+            color: #921A40;
+            margin-bottom: 15px;
+        }
+
+        .cart-summary p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .cart-summary .total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Checkout Button */
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2rem;
+            color: #ffffff;
+            background-color: #D9534F;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .checkout-btn:hover {
+            background-color: #C14536;
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <!-- Sidebar -->
+
+
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+        <div class="sidebar">
+            <br>
+            <br>
+            <br>
+            <a href="home.html"><h1>Y.O.U</h1></a>
+            <a href="about.html">ABOUT</a>
+            <a href="shop.html">SHOP</a>
+            <ul>
+                <li class="dropdown">
+                    <a href="collection.html">Collection of YOU</a>
+                    <div class="dropdown-menu">
+                        <a href="rg.html">YOU Radiance Glow - Glowing Skin</a>
+                        <a href="acne-plus.html">YOU Acne Plus - Acne Removal</a>
+                        <a href="sunbrella.html">YOU Sunbrella - UV Sunscreen</a>
+                        <a href="radiance-up.html">YOU Radiance UP! - Brightening</a>
+                        <a href="golden-age.html">YOU Golden Age - Anti-Aging</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="skincare.html">Skincare</a>
+                    <div class="dropdown-menu">
+                        <a href="cleanser.html">Cleanser</a>
+                        <a href="te.html">Toner & Essence</a>
+                        <a href="serum.html">Serum</a>
+                        <a href="moisturizer.html">Moisturizer & Cream</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="makeup.html">Make Up</a>
+                    <div class="dropdown-menu">
+                        <a href="makeup.html">All</a>
+    <a href="cloud.html">Cloud Touch</a>
+    <a href="noutriwear.html">Noutriwear</a>
+    <a href="eyebrow.html">Eyebrow & Mascara</a>
+    <a href="lips.html">Lips</a>
+                    </div>
+                </li>
+</ul>
+            <a href="#">STORE</a>
+        </div>
+
+            <div class="top-nav">
+                <a href="profile.html" class="ribbon">Profile</a>
+                <a href="#">Search</a>
+                <a href="cart.html">Cart</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="cart-container">
+        <!-- Page Title -->
+        <h2>Your Cart</h2>
+        <p>Review your items and proceed to checkout when ready!</p>
+
+
+        <div class="cart-items">
+            <div class="cart-item" id="item1">
+                <img src="c3.jpg" alt="Skincare Set">
+                <div class="item-details">
+                    <p>Stay Matte 2 in 1 Bundle</p>
+                    <p class="price">RM 64.40</p>
+                </div>
+                <span class="item-remove" onclick="removeItem('item1')">Remove</span>
+            </div>
+
+            <div class="cart-item" id="item2">
+                <img src="l3.jpg" alt="Lipstick">
+                <div class="item-details">
+                    <p>Fresh Watery Liptint</p>
+                    <p class="price">RM 12.17</p>
+                </div>
+                <span class="item-remove" onclick="removeItem('item2')">Remove</span>
+            </div>
+        </div>
+
+        <!-- Cart Summary -->
+        <div class="cart-summary">
+            <h3>Cart Summary</h3>
+            <p>Subtotal: RM <span id="subtotal">76.57</span></p>
+            <p>Shipping: 10% Off for Signing Up</p>
+            <p class="total">Total: RM <span id="total">80.57</span></p>
+        </div>
+
+        <!-- Checkout Button -->
+        <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
+    </div>
+
+    <script>
+        function addToCart(productName, price) {
+            // Get the cart data from localStorage or initialize an empty array
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Add the new item to the cart
+            cart.push({ name: productName, price: price });
+            
+            // Save the updated cart back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            alert(${productName} has been added to the cart!);
+        }
+
+function displayCart() {
+            // Get the cart data from localStorage
+            const cart = JSON.parse(localStorage.getItem('cart'))  [];
+            
+            // Reference to the cart container
+            const cartContainer = document.getElementById('cart-container');
+            cartContainer.innerHTML = ''; // Clear existing content
+            
+            let total = 0;
+            cart.forEach((item, index) => {
+                // Create a div for each cart item
+                const itemDiv = document.createElement('div');
+                itemDiv.textContent = `${item.name} - RM ${item.price.toFixed(2)}`;
+                
+                // Add a remove button for each item
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.onclick = () => {
+                    removeItem(index);
+                };
+                
+                itemDiv.appendChild(removeButton);
+                cartContainer.appendChild(itemDiv);
+                
+                total += item.price;
+            });
+            
+            // Update the total
+            document.getElementById('total').textContent = total.toFixed(2);
+        }
+        
+        function removeItem(index) {
+            // Get the cart from localStorage
+            const cart = JSON.parse(localStorage.getItem('cart'))  [];
+            
+            // Remove the selected item
+            cart.splice(index, 1);
+            
+            // Update the cart in localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Refresh the cart display
+            displayCart();
+        }
+        
+        // Display the cart when the page loads
+        displayCart();
+    </script>
+
+      <script src="script.js"></script>
+
+</body>
+</html>

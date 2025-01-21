@@ -1,0 +1,501 @@
+body {
+            margin: 0;
+            font-family: 'JasmineUPC', 'Times New Roman';
+        }
+        /* Container styling */
+/* Container styling */
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 20%; /* Set the sidebar to 10% width */
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 0 30px 30px 0; /* Rounded edges on the right side */
+    position: fixed; /* Fixed position for visibility */
+    top: 0;
+    left: -10%; /* Hidden initially (matches width to slide in smoothly) */
+    height: 100%;
+    background-color: white;
+    color: rgba(142, 92, 86, 0); /* Transparent text initially */
+    border-right: 2px solid rgba(142, 92, 86, 0); /* Transparent border initially */
+    transition: 
+        left 0.5s ease, 
+        opacity 0.5s ease, 
+        color 0.5s ease, 
+        border-right-color 0.5s ease; /* Smooth transitions */
+    opacity: 0; /* Fully hidden */
+    z-index: 3; /* Above the main content */
+}
+
+.sidebar.active {
+    left: 0; /* Slide into view */
+    opacity: 1; /* Fully visible */
+    background-color: white; /* Slightly transparent background */
+    color: rgba(142, 92, 86, 1); /* Fully visible text */
+    border-right: 2px solid rgba(142, 92, 86, 1); /* Visible border */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+.sidebar h1 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    border-bottom: 1px solid rgba(142, 92, 86, 0.3); /* Faint border for list items */
+    color: inherit;
+    text-align: left;
+}
+
+.sidebar ul li:hover {
+    background-color: rgba(142, 92, 86, 0.1); /* Light hover effect */
+}
+
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #8e5c56;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 4; /* Above sidebar */
+}
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    left: 100%; /* Position the menu to the right of the dropdown */
+    top: 0; /* Align the top of the menu with the parent item */
+    background-color: white; /* Match the sidebar's slightly transparent background */
+    color: rgba(142, 92, 86, 1); /* Fully visible text */
+    border: 1px solid rgba(142, 92, 86, 0.3); /* Subtle border */
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Soft shadow for a floating effect */
+    z-index: 1000;
+    white-space: nowrap; /* Prevent text wrapping */
+    border-radius: 10px; /* Rounded edges for the dropdown */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth appearance effect */
+    opacity: 0; /* Hidden initially */
+    transform: translateX(-10px); /* Slightly slide in from the left */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block; /* Show on hover */
+    opacity: 1; /* Fully visible */
+    transform: translateX(0); /* Remove the slide effect */
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    margin: 5px 0;
+    color: rgba(142, 92, 86, 1); /* Match the sidebar's text color */
+    text-decoration: none;
+    border-radius: 5px; /* Slightly rounded links */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+.dropdown-menu a:hover {
+    background-color: rgba(142, 92, 86, 0.2); /* Subtle hover background */
+    color: rgba(142, 92, 86, 1); /* Maintain consistent text color */
+}
+
+/* Show dropdown menu on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+/* Main content styling */
+.main-content {
+    padding: 20px;
+    margin-left: 0;
+    height: 100vh;
+    background-color: #760e14;
+    flex: 1;
+    position: relative;
+    color: white;
+    overflow: auto;
+    transition: margin-left 0.5s ease; /* Smooth content shift */
+    z-index : 2;
+}
+
+/* Shift content when sidebar is active */
+.sidebar.active ~ .main-content {
+    margin-left: 20%; /* Shift to match the sidebar width */
+}
+
+/* Background image styling */
+.main-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Overlay effect */
+.main-content .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.7) 30%, transparent 60%);
+    z-index: 1;
+}
+
+
+
+        .main-content .text {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 3;
+            padding: 50px;
+        }
+
+        .main-content .text h2 {
+            font-size: 3.5rem;
+            margin: 0;
+            color: #921A40;
+        }
+
+
+
+        /* Top navigation */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 4;
+            align-items: center;
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: #F9E6CF;
+            position: relative;
+            
+        }
+
+        .top-nav a.ribbon {
+            position: relative;
+            padding: 5px 10px;
+        }
+
+        .top-nav a.ribbon::after {
+            content: "Sign Up 10%";
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #921A40;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+
+        .top-nav.scrolled a {
+            color: #8e5c56;
+            transition: color 0.3s ease; /* Smooth transition */
+        }
+
+
+
+
+
+/* Product Media Styling */
+.product-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 20px auto; /* Center the video and add spacing */
+    border-radius: 10px; /* Apply border-radius to the container */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for aesthetics */
+}
+
+.product-video {
+    width: 100%; /* Make the video responsive */
+    max-width: 800px; /* Limit the maximum size of the video */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the video covers its container */
+    border-radius: 10px; /* Apply rounding directly to the video */
+}
+
+
+
+
+
+/* Best Products Section */
+.best-products {
+    padding: 40px 20px;
+    background-color: rgba(248, 245, 243, 0.8); /* Soft background matching the theme */
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #921A40;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    align-items: stretch;
+}
+
+/* Product Card */
+.product-card {
+    width: 300px; /* Set a fixed width for all product cards */
+    height: 450px; /* Ensure uniform height */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Ensure content stacks vertically */
+    justify-content: space-between; /* Space content evenly */
+}
+
+.product-card img {
+    width: 100%; /* Full width of the card */
+    height: 60%; /* Take 60% of the card height */
+    object-fit: cover; /* Ensure images fit without distortion */
+    border-radius: 10px;
+}
+
+.product-card h3 {
+    font-size: 1.5rem;
+    color: #921A40;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 1rem;
+    color: #8e5c56;
+    margin-bottom: 15px;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-shop {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #921A40;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-shop:hover {
+    background-color: #8e5c56;
+}
+a.btn-link {
+    text-decoration: none; /* Remove underline */
+}
+
+a.btn-link .btn-shop {
+    display: inline-block; /* Ensure button behaves normally */
+    width: 100%;
+    padding: 10px;
+    background-color: #921A40;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+a.btn-link .btn-shop:hover {
+    background-color: #8e5c56;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .product-card {
+        width: 90%; /* Adjust width for smaller screens */
+        height: auto; /* Allow cards to adjust height naturally */
+    }
+
+    .product-card img {
+        height: 150px; /* Reduce image height for smaller screens */
+    }
+}
+
+/* Slideshow inside product card */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Adjust height to fit your design */
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.slideshow-container .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slideshow-container .slide.active {
+    opacity: 1;
+}
+
+.slideshow-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #921A40;
+    color: #F9E6CF;
+    padding: 40px 20px;
+    font-size: 1rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #F9E6CF;
+}
+
+.footer-column p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #F9E6CF;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #F9E6CF;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #8e5c56;
+}
+
+.social-links img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.subscribe-form input {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #F9E6CF;
+    border-radius: 5px;
+    background-color: #FFF;
+    color: #921A40;
+}
+
+.subscribe-form button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #F9E6CF;
+    background-color: #8e5c56;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe-form button:hover {
+    background-color: #5e3b3a;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(249, 230, 207, 0.3);
+    padding-top: 10px;
+    color: rgba(249, 230, 207, 0.8);
+}

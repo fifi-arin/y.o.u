@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <link rel="stylesheet" href="mystyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+
+    <style>
+        /* Global Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: rgb(168,72,114);
+            background: rgb(171,34,34);
+            background: rgb(207,66,66);
+            background: radial-gradient(circle, rgba(207,66,66,1) 0%, rgba(251,222,235,1) 59%);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            height: 100%;
+        }
+
+        /* Navigation Bar */
+        nav {
+            width: 100%;
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        nav a {
+            font-size: 1.1rem;
+            color: #921A40; /* Deep pink color for links */
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: 600;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #921A40;
+            color: #fff;
+        }
+
+        /* Product Filter Navigation */
+        .filter-nav {
+            background: #f9f5f5; /* Light background for nav */
+            border-radius: 25px;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: -66px;
+            margin-top: 141px;
+            position: sticky;
+            top: 70px;
+            z-index: 5;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-nav a {
+            font-size: 1rem;
+            color: #4a3c3c; /* Neutral brown color */
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .filter-nav a.active {
+            color: #66332f; /* Darker shade for active link */
+        }
+
+        .filter-nav a.active::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background-color: #66332f;
+        }
+
+        .filter-nav a:hover {
+            color: #66332f; /* Darker hover effect */
+        }
+
+        /* Product Section */
+        .product-container {
+            margin-top: 150px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        /* Product Box */
+        .product-box {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            padding: 20px;
+            border: 5px solid pink;
+        }
+
+        .product-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-box img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-box:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .product-name {
+            font-size: 1.6rem;
+            color: #921A40; /* Deep pink for product names */
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            color: #ff80bf; /* Soft pink for price */
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .buy-now-btn {
+            background-color: #921A40; /* Deep pink for button */
+            color: white;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .buy-now-btn:hover {
+            background-color: #731a3e; /* Darker deep pink on hover */
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+
+
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+        <div class="sidebar">
+            <br>
+            <br>
+            <br>
+            <a href="home.html"><h1>Y.O.U</h1></a>
+            <a href="about.html">ABOUT</a>
+            <a href="#">SHOP</a>
+            <ul>
+                <li class="dropdown">
+                    <a href="#">Collection of YOU</a>
+                    <div class="dropdown-menu">
+                        <a href="#">YOU Radiance Glow - Glowing Skin</a>
+                        <a href="#">YOU Acne Plus - Acne Removal</a>
+                        <a href="#">YOU Sunbrella - UV Sunscreen</a>
+                        <a href="#">YOU Radiance UP! - Brightening</a>
+                        <a href="#">YOU Golden Age - Anti-Aging</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Skincare</a>
+                    <div class="dropdown-menu">
+                        <a href="#">Cleanser</a>
+                        <a href="#">Toner & Essence</a>
+                        <a href="#">Serum</a>
+                        <a href="#">Moisturizer & Cream</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Make Up</a>
+                    <div class="dropdown-menu">
+                        <a href="#">Cushion</a>
+                        <a href="#">Foundations</a>
+                        <a href="#">Eyes</a>
+                        <a href="#">Lips</a>
+                        <a href="#">Beauty Tools</a>
+                    </div>
+                </li>
+</ul>
+            <a href="#">STORE</a>
+        </div>
+
+            <div class="top-nav">
+                <a href="profile.html" class="ribbon">Profile</a>
+                <a href="#">Search</a>
+                <a href="#">Cart</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#collection">Collection</a>
+        <a href="#skincare">Skincare</a>
+        <a href="#makeup">Makeup</a>
+    </nav>
+
+    <!-- Filter Navigation -->
+    <div class="filter-nav">
+        <a href="#all" class="active">All</a>
+        <a href="#lipstick">Lipstick</a>
+        <a href="#liquid">Liquid</a>
+        <a href="#lipbalm">Lipbalm</a>
+    </div>
+
+    <!-- Product Section -->
+    <div class="product-container">
+        <!-- Product 1 -->
+        <div class="product-box" id="collection">
+            <img src="sunscreen/acne ss.jpg" alt="Product 1">
+            <div class="product-info">
+                <div class="product-name">Product 1</div>
+                <div class="product-price">RM 19.99</div>
+                <div class="product-description">A versatile product designed for modern beauty enthusiasts.</div>
+                <a href="#" class="buy-now-btn">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-box" id="skincare">
+            <img src="y.o.u acne plus/acne serum.jpg" alt="Product 2">
+            <div class="product-info">
+                <div class="product-name">Product 2</div>
+                <div class="product-price">RM 24.99</div>
+                <div class="product-description">Enhance your skincare routine with this premium item.</div>
+                <a href="#" class="buy-now-btn">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-box" id="makeup">
+            <img src="lips1.jpg" alt="Product 3">
+            <div class="product-info">
+                <div class="product-name">Product 3</div>
+                <div class="product-price">RM 29.99</div>
+                <div class="product-description">Perfect your makeup with this long-lasting, stylish product.</div>
+                <a href="#" class="buy-now-btn">Buy Now</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

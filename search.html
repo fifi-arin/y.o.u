@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="mystyle.css">
+    <style>
+        body {
+            flex-direction: column;
+        font-family: 'Times New Roman';
+        background-image: url(abt.gif);
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+
+         .search-container {
+            text-align: center;
+            background: linear-gradient(135deg, #921A40, #8e5c56);
+            padding: 70px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            max-width: 600px;
+            width: 90%;
+            margin: auto;
+        }
+
+       
+        .search-container {
+            text-align: center;
+            background: linear-gradient(135deg, #921A40, #8e5c56);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .search-container h1 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .search-container input[type="text"] {
+            width: 90%;
+            padding: 15px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-container input[type="text"]:focus {
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-container button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            color: #921A40;
+            background-color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+        }
+
+        .search-container button:hover {
+            background-color: #8e5c56;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-container button:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        .search-results {
+            margin-top: 20px;
+            text-align: left;
+            color: white;
+        }
+
+        .search-results a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+
+        .search-results a:hover {
+            color: #ffd700;
+        }
+    </style>
+     <script>
+        function searchContent() {
+            const query = document.querySelector('input[type="text"]').value.toLowerCase();
+            const links = [
+                { text: 'Home', url: 'home.html' },
+                { text: 'About', url: 'about.html' },
+                { text: 'Shop', url: 'collection.html' },
+                { text: 'YOU Radiance Glow', url: 'rg.html' },
+                { text: 'YOU Acne Plus', url: 'acne-plus.html' },
+                { text: 'YOU Sunbrella', url: 'sunbrella.html' },
+                { text: 'YOU Radiance UP!', url: 'radiance-up.html' },
+                { text: 'YOU Golden Age', url: 'golden-age.html' },
+                { text: 'Skincare', url: 'skincare.html' },
+                { text: 'Cleanser', url: 'cleanser.html' },
+                { text: 'Toner & Essence', url: 'te.html' },
+                { text: 'Serum', url: 'serum.html' },
+                { text: 'Moisturizer & Cream', url: 'moisturizer.html' },
+                { text: 'Makeup', url: 'makeup.html' },
+                { text: 'Cloud Touch', url: 'cloud.html' },
+                { text: 'Noutriwear', url: 'noutriwear.html' },
+                { text: 'Eyebrow & Mascara', url: 'eyebrow.html' },
+                { text: 'Lips', url: 'lips.html' },
+                { text: 'Store', url: 'store.html' },
+                { text: 'Profile', url: 'profile.html' },
+                { text: 'Cart', url: 'cart.html' }
+            ];
+
+            const resultsContainer = document.querySelector('.search-results');
+            resultsContainer.innerHTML = '';
+
+            links.forEach(link => {
+                if (link.text.toLowerCase().includes(query)) {
+                    const a = document.createElement('a');
+                    a.href = link.url;
+                    a.textContent = link.text;
+                    resultsContainer.appendChild(a);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+
+
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+        <div class="sidebar">
+            <br>
+            <br>
+            <br>
+            <a href="home.html"><h1>Y.O.U</h1></a>
+            <a href="about.html">ABOUT</a>
+            <a href="collection.html">SHOP</a>
+            <ul>
+                <li class="dropdown">
+                    <a href="collection.html">Collection of YOU</a>
+                    <div class="dropdown-menu">
+                        <a href="rg.html">YOU Radiance Glow - Glowing Skin</a>
+                        <a href="acne-plus.html">YOU Acne Plus - Acne Removal</a>
+                        <a href="sunbrella.html">YOU Sunbrella - UV Sunscreen</a>
+                        <a href="radiance-up.html">YOU Radiance UP! - Brightening</a>
+                        <a href="golden-age.html">YOU Golden Age - Anti-Aging</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="skincare.html">Skincare</a>
+                    <div class="dropdown-menu">
+                        <a href="cleanser.html">Cleanser</a>
+                        <a href="te.html">Toner & Essence</a>
+                        <a href="serum.html">Serum</a>
+                        <a href="moisturizer.html">Moisturizer & Cream</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="makeup.html">Make Up</a>
+                    <div class="dropdown-menu">
+                        <a href="makeup.html">All</a>
+                            <a href="cloud.html">Cloud Touch</a>
+                            <a href="noutriwear.html">Noutriwear</a>
+                            <a href="eyebrow.html">Eyebrow & Mascara</a>
+                            <a href="lips.html">Lips</a>
+                    </div>
+                </li>
+</ul>
+            <a href="store.html">STORE</a>
+        </div>
+
+        <div class="top-nav">
+                <a href="profile.html" class="ribbon">Profile</a>
+                <a href="search.html">Search</a>
+                <a href="cart.html">Cart</a>
+            </div>
+
+    <div class="search-container">
+        <h1>Search Page</h1>
+        <input type="text" placeholder="Search here...">
+        <br>
+        <button onclick="searchContent()">Search</button>
+        <div class="search-results"></div>
+    </div>
+                     <script src="script.js"></script>
+
+
+
+    <div class="footer-bottom">
+        <p>© 2025 Y.O.U Beauty. All Rights Reserved.</p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+        <link rel="stylesheet" href="mystyle.css">
+
+    <style>
+        /* Import JasmineUPC font */
+        @import url('https://fonts.googleapis.com/css2?family=JasmineUPC&display=swap');
+
+        /* Global Styling */
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f2f4f6, #EBD6D1);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Checkout Container */
+        .checkout-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header Section */
+        .checkout-container h2 {
+            font-family: 'JasmineUPC', sans-serif; /* Apply JasmineUPC to headings */
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #921A40; /* Previous theme's bold color */
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .checkout-container p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Form Elements */
+        .checkout-container form label {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .checkout-container form input,
+        .checkout-container form select {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .checkout-container form button {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2rem;
+            color: #ffffff;
+            background-color: #921A40; /* Previous theme's accent color */
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .checkout-container form button:hover {
+            background-color: #73142F; /* Darker shade for hover */
+            transform: scale(1.03);
+        }
+
+        /* Order Summary Section */
+        .order-summary {
+            background: #f7f9fc; /* Light pastel tone */
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-summary h3 {
+            font-size: 1.5rem;
+            color: #921A40; /* Accent color */
+            margin-bottom: 15px;
+        }
+
+        .order-summary p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .order-summary .total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+        <div class="sidebar">
+            <br>
+            <br>
+            <br>
+            <a href="home.html"><h1>Y.O.U</h1></a>
+            <a href="about.html">ABOUT</a>
+            <a href="shop.html">SHOP</a>
+            <ul>
+                <li class="dropdown">
+                    <a href="collection.html">Collection of YOU</a>
+                    <div class="dropdown-menu">
+                        <a href="rg.html">YOU Radiance Glow - Glowing Skin</a>
+                        <a href="acne-plus.html">YOU Acne Plus - Acne Removal</a>
+                        <a href="sunbrella.html">YOU Sunbrella - UV Sunscreen</a>
+                        <a href="radiance-up.html">YOU Radiance UP! - Brightening</a>
+                        <a href="golden-age.html">YOU Golden Age - Anti-Aging</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="skincare.html">Skincare</a>
+                    <div class="dropdown-menu">
+                        <a href="cleanser.html">Cleanser</a>
+                        <a href="te.html">Toner & Essence</a>
+                        <a href="serum.html">Serum</a>
+                        <a href="moisturizer.html">Moisturizer & Cream</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="makeup.html">Make Up</a>
+                    <div class="dropdown-menu">
+                        <a href="makeup.html">All</a>
+    <a href="cloud.html">Cloud Touch</a>
+    <a href="noutriwear.html">Noutriwear</a>
+    <a href="eyebrow.html">Eyebrow & Mascara</a>
+    <a href="lips.html">Lips</a>
+                    </div>
+                </li>
+            </ul>
+            <a href="#">STORE</a>
+        </div>
+
+
+
+            <div class="top-nav">
+                <a href="profile.html" class="ribbon">Profile</a>
+                <a href="search.html">Search</a>
+                <a href="cart.html">Cart</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="checkout-container">
+        <!-- Page Title -->
+        <h2>Checkout</h2>
+        <p>Secure your order in just a few steps!</p>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <p>Product 1: Skincare Set - $30.00</p>
+            <p>Product 2: Lipstick - $10.00</p>
+            <p class="total">Total: $40.00</p>
+        </div>
+
+    <!-- Checkout Form -->
+        <form>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+            <label for="address">Shipping Address</label>
+            <input type="text" id="address" name="address" placeholder="Enter your shipping address" required>
+
+            <label for="payment-method">Payment Method</label>
+            <select id="payment-method" name="payment-method">
+                <option value="credit-card">Credit Card</option>
+                <option value="paypal">PayPal</option>
+                <option value="bank-transfer">Bank Transfer</option>
+            </select>
+
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+
+
+  <script src="script.js"></script>
+
+<footer> 
+<div class="footer-bottom">
+        <p>© 2025 Y.O.U Beauty. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+
+
+</body>
+</html>
