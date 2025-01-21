@@ -255,7 +255,7 @@
                     <p>Stay Matte 2 in 1 Bundle</p>
                     <p class="price">RM 64.40</p>
                 </div>
-                <span class="item-remove" onclick="removeItem('item1')">Remove</span>
+    <span class="item-remove" onclick="removeItem(0)">Remove</span>
             </div>
 
             <div class="cart-item" id="item2">
@@ -264,7 +264,7 @@
                     <p>Fresh Watery Liptint</p>
                     <p class="price">RM 12.17</p>
                 </div>
-                <span class="item-remove" onclick="removeItem('item2')">Remove</span>
+    <span class="item-remove" onclick="removeItem(0)">Remove</span>
             </div>
         </div>
 
@@ -281,66 +281,20 @@
     </div>
 
     <script>
-        function addToCart(productName, price) {
-            // Get the cart data from localStorage or initialize an empty array
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            
-            // Add the new item to the cart
-            cart.push({ name: productName, price: price });
-            
-            // Save the updated cart back to localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-            
-            alert(${productName} has been added to the cart!);
-        }
+       function removeItem(index) {
+    // Get the cart data from localStorage
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Remove the selected item from the cart array
+    cart.splice(index, 1);
+    
+    // Update the cart data in localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // Refresh the cart display
+    displayCart();
+}
 
-function displayCart() {
-            // Get the cart data from localStorage
-            const cart = JSON.parse(localStorage.getItem('cart'))  [];
-            
-            // Reference to the cart container
-            const cartContainer = document.getElementById('cart-container');
-            cartContainer.innerHTML = ''; // Clear existing content
-            
-            let total = 0;
-            cart.forEach((item, index) => {
-                // Create a div for each cart item
-                const itemDiv = document.createElement('div');
-                itemDiv.textContent = `${item.name} - RM ${item.price.toFixed(2)}`;
-                
-                // Add a remove button for each item
-                const removeButton = document.createElement('button');
-                removeButton.textContent = 'Remove';
-                removeButton.onclick = () => {
-                    removeItem(index);
-                };
-                
-                itemDiv.appendChild(removeButton);
-                cartContainer.appendChild(itemDiv);
-                
-                total += item.price;
-            });
-            
-            // Update the total
-            document.getElementById('total').textContent = total.toFixed(2);
-        }
-        
-        function removeItem(index) {
-            // Get the cart from localStorage
-            const cart = JSON.parse(localStorage.getItem('cart'))  [];
-            
-            // Remove the selected item
-            cart.splice(index, 1);
-            
-            // Update the cart in localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-            
-            // Refresh the cart display
-            displayCart();
-        }
-        
-        // Display the cart when the page loads
-        displayCart();
     </script>
 
       <script src="script.js"></script>
