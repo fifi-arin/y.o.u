@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="mystyle.css">
+    <style>
+        
+.confirmation-message {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #4CAF50;
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        text-align: center;
+    }
+
+    .confirmation-message p {
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+    }
+
+    .close-btn {
+        background-color: #fff;
+        color: #4CAF50;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+
+    .close-btn:hover {
+        background-color: #ddd;
+    }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+
+
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+        <div class="sidebar">
+            <br>
+            <br>
+            <br>
+            <a href="index.html"><h1>Y.O.U</h1></a>
+            <a href="about.html">ABOUT</a>
+            <a href="collection.html">SHOP</a>
+            <ul>
+                <li class="dropdown">
+                    <a href="collection.html">Collection of YOU</a>
+                    <div class="dropdown-menu">
+                        <a href="rg.html">YOU Radiance Glow - Glowing Skin</a>
+                        <a href="acne-plus.html">YOU Acne Plus - Acne Removal</a>
+                        <a href="sunbrella.html">YOU Sunbrella - UV Sunscreen</a>
+                        <a href="radiance-up.html">YOU Radiance UP! - Brightening</a>
+                        <a href="golden-age.html">YOU Golden Age - Anti-Aging</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="skincare.html">Skincare</a>
+                    <div class="dropdown-menu">
+                        <a href="cleanser.html">Cleanser</a>
+                        <a href="te.html">Toner & Essence</a>
+                        <a href="serum.html">Serum</a>
+                        <a href="moisturizer.html">Moisturizer & Cream</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="makeup.html">Make Up</a>
+                    <div class="dropdown-menu">
+                        <a href="makeup.html">All</a>
+                            <a href="cloud.html">Cloud Touch</a>
+                            <a href="noutriwear.html">Noutriwear</a>
+                            <a href="eyebrow.html">Eyebrow & Mascara</a>
+                            <a href="lips.html">Lips</a>
+                    </div>
+                </li>
+</ul>
+            <a href="store.html">STORE</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <img src="bgi.jpg" alt="Background Image">
+            <div class="overlay"></div>
+            <div class="text">
+                <h2>Y.O.U (Youthful, Outstanding, Unique)</h2>
+            </div>
+            <div class="top-nav">
+                <a href="profile.html" class="ribbon">Profile</a>
+                <a href="search.html">Search</a>
+                <a href="cart.html">Cart</a>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Slideshow container -->
+<div class="product-media">
+    <video class="product-video" autoplay loop playsinline controls>
+        <source src="video1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+
+
+
+<div class="best-products">
+    <h2 class="section-title">Our Best Products</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="product1.jpg" alt="Cloud Foundation">
+            <h3>Cloud Foundation</h3>
+            <p>Lightweight & Hydrating</p>
+            <a href="cloud.html" class="btn-link">
+            <button class="btn-shop">Shop Now</button>
+        </a>
+        </div>
+        <div class="product-card">
+            <img src="product2.png" alt="Setting Spray">
+            <h3>Setting Spray</h3>
+            <p>Stay Lock Mist</p>
+            <a href="noutriwear.html" class="btn-link">
+            <button class="btn-shop">Shop Now</button>
+        </a>
+        </div>
+
+        <div class="product-card slideshow-card">
+    <div class="slideshow-container">
+        <div class="slide active">
+            <img src="lp1.png" alt="Lip Serum Image 1">
+        </div>
+        <div class="slide">
+            <img src="lp2.png" alt="Lip Serum Image 2">
+        </div>
+        <div class="slide">
+            <img src="lp3.png" alt="Lip Serum Image 3">
+        </div>
+    </div>
+    <h3>Icy Glow Lip Serum</h3>
+    <p>Hydrating & Nourishing Lip Care</p>
+    <a href="lips.html" class="btn-link">
+    <button class="btn-shop">Shop Now</button>
+</a>
+</div>
+
+    </div>
+<br>
+<br>
+<br>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="product3.png" alt="Cloud Foundation">
+            <h3>Y.O.U AcnePlus Spot Care</h3>
+            <p>Acne Treatment Relieve Breakout Soothe Skin</p>
+            <a href="acne-plus.html" class="btn-link">
+            <button class="btn-shop">Shop Now</button>
+        </a>
+        </div>
+        <div class="product-card">
+            <img src="product4.png" alt="Sunbrella Triple">
+            <h3>YOU Sunbrella Triple UV Elixir Sunscreen</h3>
+            <p>Blue Light Protection</p>
+            <a href="sunbrella.html" class="btn-link">
+            <button class="btn-shop">Shop Now</button>
+        </a>
+        </div>
+        <div class="product-card">
+            <img src="product5.png" alt="Radiance Glow Serum">
+            <h3>Y.O.U AP Fine Pore OilCtr Serum</h3>
+            <p>Soothing Red Skin</p>
+            <a href="acne-plus.html" class="btn-link">
+            <button class="btn-shop">Shop Now</button>
+        </a>
+        </div>
+    </div>
+</div>
+
+
+
+     <script src="script.js"></script>
+
+     <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>About Us</h3>
+            <p>
+                Y.O.U is committed to providing Youthful, Outstanding, and Unique products for everyone. 
+                We combine quality and affordability to deliver the best.
+            </p>
+        </div>
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="collection.html">Shop</a></li>
+                <li><a href="store.html">Store Locator</a></li>
+                <li><a href="https://web.telegram.org/k/">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Connect With Us</h3>
+            <ul class="social-links">
+                <li><a href="https://www.instagram.com/youbeauty_idn?igsh=NWJtc3pkcjd1MGx6"><img src="instagram.png" alt="Instagram"> Instagram</a></li>
+                <li><a href="https://x.com/youbeauty_id"><img src="twitter.png" alt="Instagram"> Twitter</a></li>
+                <li><a href="https://www.threads.net/@youbeauty_idn?xmt=AQGzTL6GsTd49D7HB4sxH9TlaCopYIDmR0jiNwFMKT1z-Xo"><img src="threads.png" alt="threads"> Threads</a></li>
+                <li><a href="https://my.shp.ee/BYAk1ag"><img src="shopee.png" alt="Shoppee"> Shopee</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+    <h3>Subscribe</h3>
+    <p>Get 10% off your first order!</p>
+    <form class="subscribe-form" id="subscribeForm">
+        <input type="email" id="emailInput" placeholder="Your Email" required>
+        <button type="submit" class="btn-subscribe">Subscribe</button>
+    </form>
+    <!-- Hidden confirmation message that will show up after submission -->
+    <div id="confirmationMessage" class="confirmation-message">
+        <p>Your email has been received! Check your inbox for confirmation.</p>
+        <button id="closeMessage" class="close-btn">Close</button>
+    </div>
+</div>
+    <div class="footer-bottom">
+        <p>© 2025 Y.O.U Beauty. All Rights Reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
